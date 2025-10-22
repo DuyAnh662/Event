@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chúc mừng sinh nhật — 23/10/2015</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap');
+    
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #ffb86b;
+      --text: #e6eef8;
+      --secondary: #ff6b6b;
+      --tertiary: #4ecdc4;
+      --dark: #0a0e1a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      overflow-x: hidden;
+    }
+    
+    body {
+      background: linear-gradient(120deg, #071126 0%, #0b2440 50%, #052034 100%);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+    }
+    
+    /* Animated background elements */
+    .bg-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      opacity: 0.7;
+      animation: float 15s infinite ease-in-out;
+    }
+    
+    .balloon:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      color: var(--accent);
+      font-size: 2rem;
+    }
+    
+    .balloon:nth-child(2) {
+      left: 20%;
+      animation-delay: 1s;
+      color: var(--secondary);
+      font-size: 2.5rem;
+    }
+    
+    .balloon:nth-child(3) {
+      left: 35%;
+      animation-delay: 3s;
+      color: var(--tertiary);
+      font-size: 1.8rem;
+    }
+    
+    .balloon:nth-child(4) {
+      left: 65%;
+      animation-delay: 5s;
+      color: var(--accent);
+      font-size: 2.2rem;
+    }
+    
+    .balloon:nth-child(5) {
+      left: 80%;
+      animation-delay: 2s;
+      color: var(--secondary);
+      font-size: 1.9rem;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(-100vh) rotate(10deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-200vh) rotate(0deg);
+        opacity: 0;
+      }
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent);
+      animation: confetti-fall 5s linear infinite;
+    }
+    
+    .confetti:nth-child(odd) {
+      background-color: var(--secondary);
+      width: 8px;
+      height: 8px;
+      animation-duration: 4s;
+    }
+    
+    .confetti:nth-child(3n) {
+      background-color: var(--tertiary);
+      width: 6px;
+      height: 6px;
+      animation-duration: 6s;
+    }
+    
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(2, 6, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(2, 6, 23, 0.8);
+    }
+    
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      margin: 0 0 16px;
+      color: var(--accent);
+      text-shadow: 0 2px 10px rgba(255, 184, 107, 0.3);
+      animation: glow 2s infinite alternate;
+    }
+    
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+      }
+      to {
+        text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
+      }
+    }
+    
+    p.lead {
+      margin: 0 0 24px;
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+    
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95));
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-backdrop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .modal {
+      width: clamp(320px, 80vw, 820px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 25px 70px rgba(2, 6, 23, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .modal-backdrop.show .modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    
+    .modal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary), var(--tertiary));
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .message {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: left;
+      white-space: pre-wrap;
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .controls {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ff9558);
+      color: var(--dark);
+      box-shadow: 0 4px 15px rgba(255, 184, 107, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 184, 107, 0.4);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      backdrop-filter: blur(5px);
+    }
+    
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .expired {
+      margin-top: 20px;
+      color: #ffd6a3;
+      opacity: 0.95;
+      font-weight: 600;
+    }
+    
+    footer {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    .cake-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .status-card {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .status-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .view-now-btn {
+      margin-top: 16px;
+      background: linear-gradient(135deg, var(--tertiary), #3cbcc0);
+      color: white;
+    }
+    
+    .view-now-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+    }
+    
+    /* Decorative elements */
+    .decoration {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 184, 107, 0.2) 0%, rgba(255, 184, 107, 0) 70%);
+      z-index: -1;
+    }
+    
+    .decoration-1 {
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+    }
+    
+    .decoration-2 {
+      bottom: -70px;
+      left: -70px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(78, 205, 196, 0.2) 0%, rgba(78, 205, 196, 0) 70%);
+    }
+    
+    /* Wheel of Fortune Styles */
+    .wheel-container {
+      margin: 30px auto;
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      border: 8px solid #fff;
+      transition: transform 4s cubic-bezier(0.2, 0.8, 0.3, 1);
+    }
+    
+    .wheel-segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      transform-origin: right bottom;
+    }
+    
+    .wheel-segment:nth-child(1) {
+      background: var(--accent);
+      transform: rotate(0deg);
+    }
+    
+    .wheel-segment:nth-child(2) {
+      background: var(--secondary);
+      transform: rotate(120deg);
+    }
+    
+    .wheel-segment:nth-child(3) {
+      background: var(--tertiary);
+      transform: rotate(240deg);
+    }
+    
+    .wheel-text {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .wheel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .wheel-pointer {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 30px solid white;
+      z-index: 11;
+    }
+    
+    .spin-button {
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--accent), #ff9558);
+      color: var(--dark);
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .spin-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 184, 107, 0.4);
+    }
+    
+    .spin-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .result-message {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 1.2rem;
+      font-weight: bold;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .card {
+        padding: 24px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .wheel-container {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .modal {
+        padding: 20px;
+      }
+      
+      .message {
+        font-size: 1rem;
+        padding: 15px;
+      }
+      
+      .wheel-container {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background elements -->
+  <div class="bg-elements">
+    <div class="balloon"><i class="fas fa-circle"></i></div>
+    <div class="balloon"><i class="fas fa-circle"></i></div>
+    <div class="balloon"><i class="fas fa-circle"></i></div>
+    <div class="balloon"><i class="fas fa-circle"></i></div>
+    <div class="balloon"><i class="fas fa-circle"></i></div>
+    
+    <!-- Confetti elements will be added by JavaScript -->
+  </div>
+
+  <div class="container card">
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
+    <div class="cake-icon">
+      <i class="fas fa-birthday-cake"></i>
+    </div>
+    
+    <h1>Chúc mừng sinh nhật!</h1>
+    <p class="lead">Trang này được thiết kế để tự hiển thị lời chúc cho đến ngày <strong>23/10/2015</strong>.</p>
+
+    <!-- Wheel of Fortune Section -->
+    <div class="wheel-section">
+      <h2 style="margin-bottom: 20px; color: var(--tertiary);">Vòng quay may mắn</h2>
+      <div class="wheel-container">
+        <div class="wheel-pointer"></div>
+        <div class="wheel" id="wheel">
+          <div class="wheel-segment">
+            <div class="wheel-text" id="prize1">Giải A</div>
+          </div>
+          <div class="wheel-segment">
+            <div class="wheel-text" id="prize2">Giải B</div>
+          </div>
+          <div class="wheel-segment">
+            <div class="wheel-text" id="prize3">Giải C</div>
+          </div>
+        </div>
+        <div class="wheel-center">
+          <i class="fas fa-star" style="color: var(--accent); font-size: 1.5rem;"></i>
+        </div>
+      </div>
+      <button id="spinButton" class="spin-button">
+        <i class="fas fa-sync-alt"></i> Quay ngay
+      </button>
+      <div id="resultMessage" class="result-message"></div>
+    </div>
+
+    <div id="statusArea">
+      <!-- Nội dung trạng thái sẽ được JS cập nhật ở đây -->
+    </div>
+  </div>
+
+  <!-- Modal để hiển thị lời chúc tự động -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal">
+      <h2 style="margin-top:0; color: var(--accent); font-family: 'Dancing Script', cursive; font-size: 2rem;">Lời chúc sinh nhật</h2>
+      <div id="message" class="message"></div>
+      <div class="controls">
+        <button id="closeBtn" class="btn btn-ghost">
+          <i class="fas fa-times"></i> Đóng
+        </button>
+        <button id="shareBtn" class="btn btn-primary">
+          <i class="fas fa-copy"></i> Sao chép lời chúc
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal để hiển thị kết quả vòng quay -->
+  <div id="wheelResultModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal">
+      <h2 style="margin-top:0; color: var(--tertiary); font-family: 'Dancing Script', cursive; font-size: 2rem;">Kết quả vòng quay</h2>
+      <div id="wheelResult" class="message"></div>
+      <div class="controls">
+        <button id="closeWheelBtn" class="btn btn-ghost">
+          <i class="fas fa-times"></i> Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === CHỈNH SỬA PHẦN VÒNG QUAY Ở ĐÂY ===
+    // Các giải thưởng có thể chỉnh sửa:
+    const prizes = [
+      "Giải A: Một cây bút nến xanh",
+      "Giải B: Vở 200 trang",
+      "Giải C: Vở 80 trang"
+    ];
+    
+    // Giải thưởng mặc định cho lần quay đầu tiên (chỉnh sửa index: 0, 1 hoặc 2)
+    const firstSpinPrizeIndex = 0;
+    
+    // Google Sheet URL (cần thay thế bằng URL Google Apps Script của bạn)
+    // Hướng dẫn tạo Google Apps Script ở cuối file
+    const googleSheetUrl = "https://script.google.com/macros/s/AKfycbzQUYNQPN8JrLcstRVIMXQhkd1m1jFFrSZbtY3XC5yaRPMcCFheSqJfaN0g3lif-ddc/exec";
+    // ========================
+
+    // === PHẦN CẤU HÌNH LỜI CHÚC SINH NHẬT ===
+    // Lời chúc mà bạn muốn mọi người thấy:
+    const birthdayMessage = `Chúc mừng sinh nhật! 🎉\n\nChúc bạn một ngày thật vui vẻ, ngập tràn tiếng cười và những khoảnh khắc đáng nhớ.\nLuôn khỏe mạnh, hạnh phúc và đạt được mọi điều ước!\n\n- Từ người gửi lời chúc: Vũ Duy Anh :>`;
+
+    // Ngày mục tiêu: (năm-tháng-ngày) — thay đổi nếu cần.
+    // Đây tương ứng với 23 October 2025
+    const targetDate = new Date('2025-10-23T23:59:59');
+    // ========================
+
+    const now = new Date();
+    const modal = document.getElementById('modalBackdrop');
+    const messageEl = document.getElementById('message');
+    const statusArea = document.getElementById('statusArea');
+    const closeBtn = document.getElementById('closeBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const bgElements = document.querySelector('.bg-elements');
+    
+    // Wheel elements
+    const wheel = document.getElementById('wheel');
+    const spinButton = document.getElementById('spinButton');
+    const resultMessage = document.getElementById('resultMessage');
+    const wheelResultModal = document.getElementById('wheelResultModal');
+    const wheelResult = document.getElementById('wheelResult');
+    const closeWheelBtn = document.getElementById('closeWheelBtn');
+    
+    // Update prize text on the wheel
+    document.getElementById('prize1').textContent = prizes[0].split(':')[0];
+    document.getElementById('prize2').textContent = prizes[1].split(':')[0];
+    document.getElementById('prize3').textContent = prizes[2].split(':')[0];
+
+    // Create confetti elements
+    function createConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.animationDelay = `${Math.random() * 5}s`;
+        confetti.style.opacity = Math.random();
+        bgElements.appendChild(confetti);
+      }
+    }
+
+    createConfetti();
+
+    // Hiển thị lời chúc trong modal
+    function openModal() {
+      messageEl.textContent = birthdayMessage;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      
+      // Add more confetti when opening modal
+      for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.top = `${Math.random() * 100}%`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        modal.appendChild(confetti);
+        
+        // Remove confetti after animation completes
+        setTimeout(() => {
+          confetti.remove();
+        }, 6000);
+      }
+    }
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Nút sao chép
+    shareBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(birthdayMessage);
+        shareBtn.innerHTML = '<i class="fas fa-check"></i> Đã sao chép ✓';
+        setTimeout(() => shareBtn.innerHTML = '<i class="fas fa-copy"></i> Sao chép lời chúc', 2200);
+      } catch (e) {
+        alert('Trình duyệt không cho phép sao chép tự động. Vui lòng bôi đen và sao chép thủ công.');
+      }
+    });
+
+    // Wheel of Fortune functionality
+    let isSpinning = false;
+    let hasSpun = localStorage.getItem('hasSpun') === 'true';
+    
+    // Check if user has spun before
+    if (hasSpun) {
+      spinButton.disabled = true;
+      spinButton.innerHTML = '<i class="fas fa-check"></i> Bạn đã quay rồi';
+      const savedPrize = localStorage.getItem('prize');
+      if (savedPrize) {
+        resultMessage.textContent = `Bạn đã nhận được: ${savedPrize}`;
+      }
+    }
+
+    spinButton.addEventListener('click', function() {
+      if (isSpinning || hasSpun) return;
+      
+      isSpinning = true;
+      spinButton.disabled = true;
+      resultMessage.textContent = "Đang quay...";
+      
+      // Determine the prize
+      let prizeIndex;
+      const isFirstSpin = localStorage.getItem('hasSpun') !== 'true';
+      
+      if (isFirstSpin) {
+        // First spin always gets the predetermined prize
+        prizeIndex = firstSpinPrizeIndex;
+        localStorage.setItem('hasSpun', 'true');
+      } else {
+        // Random prize for subsequent spins
+        prizeIndex = Math.floor(Math.random() * prizes.length);
+      }
+      
+      // Calculate rotation (multiple spins plus final position)
+      const degreesPerPrize = 360 / prizes.length;
+      const targetDegree = 360 - (prizeIndex * degreesPerPrize) + (degreesPerPrize / 2);
+      const extraSpins = 5; // Number of full spins before stopping
+      const totalRotation = extraSpins * 360 + targetDegree;
+      
+      // Apply rotation
+      wheel.style.transform = `rotate(${totalRotation}deg)`;
+      
+      // Show result after animation completes
+      setTimeout(() => {
+        isSpinning = false;
+        const prize = prizes[prizeIndex];
+        resultMessage.textContent = `Chúc mừng! Bạn nhận được: ${prize}`;
+        
+        // Save result
+        localStorage.setItem('prize', prize);
+        localStorage.setItem('hasSpun', 'true');
+        hasSpun = true;
+        
+        // Show result modal
+        wheelResult.textContent = `Chúc mừng bạn đã nhận được: ${prize}\n\nKết quả đã được lưu vào hệ thống.`;
+        wheelResultModal.classList.add('show');
+        wheelResultModal.setAttribute('aria-hidden', 'false');
+        
+        // Save to Google Sheet
+        saveToGoogleSheet(prize);
+        
+        // Disable button
+        spinButton.innerHTML = '<i class="fas fa-check"></i> Bạn đã quay rồi';
+      }, 4000); // Match CSS transition time
+    });
+
+    // Close wheel result modal
+    closeWheelBtn.addEventListener('click', function() {
+      wheelResultModal.classList.remove('show');
+      wheelResultModal.setAttribute('aria-hidden', 'true');
+    });
+
+function saveToGoogleSheet(prize) {
+  const userInfo = {
+    timestamp: new Date().toISOString(),
+    prize: prize,
+    userAgent: navigator.userAgent,
+  };
+
+  // chuyển thành application/x-www-form-urlencoded
+  const params = new URLSearchParams(userInfo);
+
+  fetch(googleSheetUrl, {
+    method: 'POST',
+    body: params, // <-- gửi form-encoded; browser tự set Content-Type
+    // *KHÔNG* set headers manually to avoid preflight
+  })
+  .then(async response => {
+    // một số webapp trả plain text; thử parse an toàn
+    try {
+      const txt = await response.text();
+      return JSON.parse(txt);
+    } catch(e) {
+      return { status: 'ok', raw: 'Không parse được JSON' };
+    }
+  })
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // fallback: lưu local
+    let savedResults = JSON.parse(localStorage.getItem('wheelResults') || '[]');
+    savedResults.push(userInfo);
+    localStorage.setItem('wheelResults', JSON.stringify(savedResults));
+  });
+}
+
+    // Nếu hiện tại <= targetDate, tự mở modal để mọi người thấy lời chúc.
+    if (now <= targetDate) {
+      // Mở modal ngay (khi trang tải xong)
+      setTimeout(openModal, 500);
+      statusArea.innerHTML = `
+        <div class="status-card">
+          <div style="margin-bottom: 10px;">
+            <i class="fas fa-calendar-check" style="color: var(--accent); margin-right: 8px;"></i>
+            Lời chúc sẽ tự hiển thị cho mọi người xem cho đến <strong>23/10/2025</strong>
+          </div>
+          <div style="font-size: 0.9rem; opacity: 0.8;">
+            (Ngày mục tiêu: ${targetDate.toLocaleString('vi-VN')})
+          </div>
+        </div>
+      `;
+    } else {
+      // Nếu đã quá hạn, hiển thị trạng thái đã hết hạn nhưng vẫn cho bấm để xem
+      statusArea.innerHTML = `
+        <div class="status-card">
+          <div class="expired">
+            <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+            Ngày 23/10/2015 đã qua.
+          </div>
+          <div style="margin-top: 12px; font-size: 0.95rem;">
+            Bạn vẫn có thể xem lời chúc bằng nút dưới đây.
+          </div>
+          <div style="margin-top: 16px;">
+            <button id="viewNow" class="btn view-now-btn">
+              <i class="fas fa-eye"></i> Xem lời chúc
+            </button>
+          </div>
+        </div>
+      `;
+      document.getElementById('statusArea').querySelector('#viewNow').addEventListener('click', openModal);
+    }
+
+    // Bấm bất kỳ chỗ ngoài modal để đóng
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    
+    wheelResultModal.addEventListener('click', (e) => {
+      if (e.target === wheelResultModal) {
+        wheelResultModal.classList.remove('show');
+        wheelResultModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
